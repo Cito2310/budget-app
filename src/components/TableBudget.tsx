@@ -1,29 +1,27 @@
 interface props {
-    title: string;
-    headers: string[];
-    data: string[][];
+    header: string[];
     footer: string[];
+    data: string[][];
+    title: string;
+    className?: string;
 }
 
-export const TableBudget = ({ data, headers, title, footer }: props) => {
+const styleHeadCell = (index: number, lengthParent: number) => `font-normal text-[#8b9199] ${index === lengthParent-1 ? "text-right" : "text-left" }`
+const styleBodyCell = (index: number, lengthParent: number) => `font-normal ${index === lengthParent-1 ? "text-right" : "text-left" }`
+const styleFootCell = (index: number, lengthParent: number) => `font-medium ${index === lengthParent-1 ? "text-right" : "text-left" }`
+
+export const TableBudget = ({ data, footer, header, title, className }:props) => {
     return (
-        <div className="w-full">
-            <div className="relative flex border border-black border-b-0 w-full justify-center">
-                <h3 className="text-center font-semibold text-lg justify-self-center">{title}</h3>
-                <button className="h-full px-2 absolute right-0"><i className="fa-solid fa-pen"/></button>
-            </div>
+        <div className={`rounded-md border border-[#cfcfcf] shadow-lg px-6 py-3 table-fixed text-[#444] ${className}`}>
+            <h2 className="font-semibold text-center">{title}</h2>
             <table className="w-full">
-                <thead><tr>
-                    {headers.map( str => <th className="table-cell font-medium">{str}</th> )}
-                </tr></thead>
+                <thead><tr>{header.map((str, index)=><th className={styleHeadCell(index, header.length)}>{str}</th>)}</tr></thead>
 
                 <tbody>
-                    { data.map( item => <tr>{item.map(str => <td className="table-cell text-center">{str}</td>)}</tr> ) }
+                    {data.map( line => <tr>{line.map((str, index)=><td className={styleBodyCell(index, header.length)}>{str}</td>)}</tr> )}
                 </tbody>
 
-                <tfoot><tr>
-                    {footer.map( str => <td className="table-cell text-center font-semibold">{str}</td> )}    
-                </tr></tfoot>
+                <tfoot><tr>{footer.map((str, index)=><td className={styleFootCell(index, header.length)}>{str}</td>)}</tr></tfoot>
             </table>
         </div>
     )
