@@ -3,7 +3,7 @@ import { Pie, PieChart, Tooltip } from 'recharts';
 interface props {
     data1: any;
     data2: any;
-    width: undefined | number;
+    width: number
 }
 
 export const SidebarPieBudget = ({ data1, data2, width }: props) => (

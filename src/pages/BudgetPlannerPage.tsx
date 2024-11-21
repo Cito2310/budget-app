@@ -17,7 +17,7 @@ const data02 = [
 export const BudgetPlannerPage = () => {
   return (
     <div className="flex w-full">
-      <div className="mx-8 my-4 flex-1">
+      <div className="mx-8 my-4 flex-grow">
         <h1 className="font-Montserrat text-2xl font-medium mb-2">PRESUPUESTO</h1>
 
         <div className="flex flex-col gap-3">
@@ -70,7 +70,7 @@ export const BudgetPlannerPage = () => {
 
         </div>
       </div>
-      <SidebarPieBudget data1={data01} data2={data02} width={250} />
+      <SidebarPieBudget data1={data01} data2={data02} width={240} />
       <button className="absolute right-8 bottom-8 bg-[#4333A0] text-[#4333A0] aspect-square w-12 rounded-full">
             <i className="fa-solid fa-pen brightness-[5] text-xl"></i>
         </button>
