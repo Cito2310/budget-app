@@ -31,16 +31,19 @@ export const ContainerDataSidebar = () => (
 
 export const Sidebar = () => {
   return (
-    <div className="w-[250px] h-screen flex flex-col gap-3 bg-[#4333A0]">
-        <ContainerDataSidebar/>
+    <>
+        <div className="w-[250px] h-screen flex flex-col gap-3 bg-[#4333A0] fixed">
+            <ContainerDataSidebar/>
 
-        <div>
-            <ButtonSidebar route="/"><i className="fa-solid fa-table w-[1.2em]"></i>Dashboard</ButtonSidebar>
-            <ButtonSidebar route="/transactions"><i className="fa-solid fa-arrow-right-arrow-left w-[1.2em]"></i>Transaction</ButtonSidebar>
-            <ButtonSidebar route="/budgetPlanner"><i className="fa-solid fa-chart-pie w-[1.2em]"></i>Budget</ButtonSidebar>
-            <ButtonSidebar route="/settings"><i className="fa-solid fa-gear w-[1.2em]"></i>Settings</ButtonSidebar>
-            <ButtonSidebar route="/historial"><i className="fa-regular fa-clock w-[1.2em]"></i>Historial</ButtonSidebar>
+            <div>
+                <ButtonSidebar route="/"><i className="fa-solid fa-table w-[1.2em]"></i>Dashboard</ButtonSidebar>
+                <ButtonSidebar route="/transactions"><i className="fa-solid fa-arrow-right-arrow-left w-[1.2em]"></i>Transaction</ButtonSidebar>
+                <ButtonSidebar route="/budgetPlanner"><i className="fa-solid fa-chart-pie w-[1.2em]"></i>Budget</ButtonSidebar>
+                <ButtonSidebar route="/settings"><i className="fa-solid fa-gear w-[1.2em]"></i>Settings</ButtonSidebar>
+                <ButtonSidebar route="/historial"><i className="fa-regular fa-clock w-[1.2em]"></i>Historial</ButtonSidebar>
+            </div>
         </div>
-    </div>
+        <div className="w-[250px]"></div>
+    </>
   )
 }
