@@ -1,15 +1,11 @@
 import { Sidebar } from "./components/Sidebar"
-import { BudgetPlannerPage } from "./pages/BudgetPlannerPage"
-import { DashboardPage } from "./pages/DashboardPage"
-import { TransactionsPage } from "./pages/TransactionsPage"
+import { AppRoute } from "./routes/AppRoute"
 
 function App() {
   return (
     <div className="App flex">
       <Sidebar />
-      <DashboardPage />
-      {/* <BudgetPlannerPage /> */}
-      {/* <TransactionsPage /> */}
+      <AppRoute/>
     </div>
   )
 }

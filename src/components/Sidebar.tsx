@@ -1,17 +1,23 @@
+import { NavLink } from "react-router-dom";
 
 interface propsButtonSidebar {
     children: JSX.Element | (JSX.Element | string)[] | string;
     active?: boolean;
+    route: string;
 }
 
-export const ButtonSidebar = ({ children, active }: propsButtonSidebar) => (
-    <button className={`
-        text-[#4333A0] ${active ? "brightness-[5]" : "brightness-[3]"}
+export const ButtonSidebar = ({ children, active, route }: propsButtonSidebar) => (
+    <NavLink to={route} 
+    style={({ isActive }) => ({
+        filter: isActive ? "brightness(5)" : "brightness(3)",
+      })}
+    className={`
+        text-[#4333A0]
         text-left px-8 py-2
         flex gap-3 items-center
     `}>
         {children}
-    </button>
+    </NavLink>
 )
 
 export const ContainerDataSidebar = () => (
@@ -25,15 +31,15 @@ export const ContainerDataSidebar = () => (
 
 export const Sidebar = () => {
   return (
-    <div className="w-[300px] h-screen flex flex-col gap-3 bg-[#4333A0]">
+    <div className="w-[250px] h-screen flex flex-col gap-3 bg-[#4333A0]">
         <ContainerDataSidebar/>
 
         <div>
-            <ButtonSidebar active><i className="fa-solid fa-table w-[1.2em]"></i>Dashboard</ButtonSidebar>
-            <ButtonSidebar><i className="fa-solid fa-arrow-right-arrow-left w-[1.2em]"></i>Transaction</ButtonSidebar>
-            <ButtonSidebar><i className="fa-solid fa-chart-pie w-[1.2em]"></i>Budget</ButtonSidebar>
-            <ButtonSidebar><i className="fa-solid fa-gear w-[1.2em]"></i>Settings</ButtonSidebar>
-            <ButtonSidebar><i className="fa-regular fa-clock w-[1.2em]"></i>Historial</ButtonSidebar>
+            <ButtonSidebar route="/"><i className="fa-solid fa-table w-[1.2em]"></i>Dashboard</ButtonSidebar>
+            <ButtonSidebar route="/transactions"><i className="fa-solid fa-arrow-right-arrow-left w-[1.2em]"></i>Transaction</ButtonSidebar>
+            <ButtonSidebar route="/budgetPlanner"><i className="fa-solid fa-chart-pie w-[1.2em]"></i>Budget</ButtonSidebar>
+            <ButtonSidebar route="/settings"><i className="fa-solid fa-gear w-[1.2em]"></i>Settings</ButtonSidebar>
+            <ButtonSidebar route="/historial"><i className="fa-regular fa-clock w-[1.2em]"></i>Historial</ButtonSidebar>
         </div>
     </div>
   )
